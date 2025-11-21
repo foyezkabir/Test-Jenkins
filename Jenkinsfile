@@ -8,7 +8,7 @@ pipeline {
         
         // Credentials binding: 'vercel-token' is the ID from Jenkins Credentials
         // The value will be stored in the VERCEL_TOKEN variable
-        VERCEL_TOKEN = credentials('vercel-token')
+        VERCEL_TOKEN = credentials('vercel_token')
     }
 
     stages {
@@ -21,18 +21,18 @@ pipeline {
             }
         }
 
+        stage('Test') {
+                steps {
+                    echo 'Running tests...'
+                        // Example test command
+                    bat 'echo Tests passed!'
+                }
+            }   
+
         stage('Build') {
             steps {
                 echo 'Building application...'
                 bat 'npm run build'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                // Example test command
-                bat 'echo Tests passed!'
             }
         }
         
