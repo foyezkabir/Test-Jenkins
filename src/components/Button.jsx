@@ -6,6 +6,8 @@ const Button = ({
     size = 'md',
     className = '',
     isLoading,
+    id,
+    testId,
     ...props
 }) => {
     const baseStyles = {
@@ -56,6 +58,8 @@ const Button = ({
 
     return (
         <button
+            id={id}
+            data-testid={testId || id}
             style={style}
             className={`btn-${variant} ${className}`}
             disabled={isLoading}

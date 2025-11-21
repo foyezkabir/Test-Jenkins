@@ -66,7 +66,7 @@ const Shop = () => {
                                 <p style={{ color: 'hsl(var(--text-muted))' }}>{product.description}</p>
                                 <p style={{ color: 'hsl(var(--primary))', fontWeight: 'bold', marginTop: '0.5rem' }}>${product.price}</p>
                             </div>
-                            <Button onClick={() => addToCart(product)}>Add to Cart</Button>
+                            <Button id={`add-to-cart-${product.id}`} onClick={() => addToCart(product)}>Add to Cart</Button>
                         </div>
                     ))}
                 </div>
@@ -78,7 +78,7 @@ const Shop = () => {
                 </h3>
 
                 {cart.length === 0 ? (
-                    <p style={{ color: 'hsl(var(--text-muted))', textAlign: 'center', padding: '2rem 0' }}>Cart is empty</p>
+                    <p id="cart-empty-msg" style={{ color: 'hsl(var(--text-muted))', textAlign: 'center', padding: '2rem 0' }}>Cart is empty</p>
                 ) : (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         {cart.map(item => (
@@ -88,9 +88,9 @@ const Shop = () => {
                                     <p style={{ fontSize: '0.875rem', color: 'hsl(var(--text-muted))' }}>${item.price} x {item.quantity}</p>
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                    <button onClick={() => updateQuantity(item.id, -1)} style={{ padding: '0.25rem', background: 'hsla(255,100%,100%,0.1)', borderRadius: '4px' }}><Minus size={14} /></button>
-                                    <button onClick={() => updateQuantity(item.id, 1)} style={{ padding: '0.25rem', background: 'hsla(255,100%,100%,0.1)', borderRadius: '4px' }}><Plus size={14} /></button>
-                                    <button onClick={() => removeFromCart(item.id)} style={{ color: 'hsl(var(--error))', marginLeft: '0.5rem' }}><Trash2 size={16} /></button>
+                                    <button id={`decrease-qty-${item.id}`} onClick={() => updateQuantity(item.id, -1)} style={{ padding: '0.25rem', background: 'hsla(255,100%,100%,0.1)', borderRadius: '4px' }}><Minus size={14} /></button>
+                                    <button id={`increase-qty-${item.id}`} onClick={() => updateQuantity(item.id, 1)} style={{ padding: '0.25rem', background: 'hsla(255,100%,100%,0.1)', borderRadius: '4px' }}><Plus size={14} /></button>
+                                    <button id={`remove-item-${item.id}`} onClick={() => removeFromCart(item.id)} style={{ color: 'hsl(var(--error))', marginLeft: '0.5rem' }}><Trash2 size={16} /></button>
                                 </div>
                             </div>
                         ))}
@@ -98,30 +98,31 @@ const Shop = () => {
                         <div style={{ marginTop: '1rem' }}>
                             <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
                                 <Input
+                                    id="coupon-input"
                                     placeholder="Coupon Code (SAVE20)"
                                     value={coupon}
                                     onChange={(e) => setCoupon(e.target.value)}
                                     style={{ marginBottom: 0 }}
                                 />
-                                <Button variant="secondary" onClick={applyCoupon} style={{ padding: '0 1rem' }}><Tag size={18} /></Button>
+                                <Button id="apply-coupon" variant="secondary" onClick={applyCoupon} style={{ padding: '0 1rem' }}><Tag size={18} /></Button>
                             </div>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                                 <span>Subtotal</span>
-                                <span>${subtotal.toFixed(2)}</span>
+                                <span id="cart-subtotal">${subtotal.toFixed(2)}</span>
                             </div>
                             {discount > 0 && (
                                 <div style={{ display: 'flex', justifyContent: 'space-between', color: 'hsl(var(--success))', marginBottom: '0.5rem' }}>
                                     <span>Discount</span>
-                                    <span>-${(subtotal * discount).toFixed(2)}</span>
+                                    <span id="cart-discount">-${(subtotal * discount).toFixed(2)}</span>
                                 </div>
                             )}
                             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.25rem', fontWeight: 'bold', marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid hsla(255,100%,100%,0.1)' }}>
                                 <span>Total</span>
-                                <span>${total.toFixed(2)}</span>
+                                <span id="cart-total">${total.toFixed(2)}</span>
                             </div>
 
-                            <Button className="w-full" style={{ width: '100%', marginTop: '1.5rem' }}>Checkout</Button>
+                            <Button id="checkout-btn" className="w-full" style={{ width: '100%', marginTop: '1.5rem' }}>Checkout</Button>
                         </div>
                     </div>
                 )}

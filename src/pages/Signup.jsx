@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, Mail, Lock, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { User, Mail, Lock, Phone, ArrowRight } from 'lucide-react';
 import Input from '../components/Input';
 import Select from '../components/Select';
 import Button from '../components/Button';
@@ -57,6 +57,7 @@ const Signup = () => {
 
                 <form onSubmit={handleSubmit}>
                     <Input
+                        id="signup-name"
                         label="Full Name"
                         icon={User}
                         placeholder="John Doe"
@@ -66,6 +67,7 @@ const Signup = () => {
                     />
 
                     <Input
+                        id="signup-email"
                         label="Email Address"
                         type="email"
                         icon={Mail}
@@ -77,6 +79,7 @@ const Signup = () => {
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                         <Select
+                            id="signup-gender"
                             label="Gender"
                             options={[
                                 { label: 'Male', value: 'male' },
@@ -89,6 +92,7 @@ const Signup = () => {
                         />
 
                         <Input
+                            id="signup-phone"
                             label="Phone"
                             icon={Phone}
                             placeholder="+1 234 567 890"
@@ -99,6 +103,7 @@ const Signup = () => {
                     </div>
 
                     <Input
+                        id="signup-password"
                         label="Password"
                         type="password"
                         icon={Lock}
@@ -111,16 +116,16 @@ const Signup = () => {
                     <div style={{ marginBottom: '1.5rem' }}>
                         <label style={{ display: 'block', marginBottom: '0.5rem' }}>Interests</label>
                         <div style={{ display: 'flex', gap: '1rem' }}>
-                            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: 'hsl(var(--text-main))', fontWeight: 'normal' }}>
-                                <input type="radio" name="role" value="student" style={{ width: 'auto' }} /> Student
+                            <label htmlFor="role-student" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: 'hsl(var(--text-main))', fontWeight: 'normal' }}>
+                                <input id="role-student" type="radio" name="role" value="student" style={{ width: 'auto' }} /> Student
                             </label>
-                            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: 'hsl(var(--text-main))', fontWeight: 'normal' }}>
-                                <input type="radio" name="role" value="professional" style={{ width: 'auto' }} /> Professional
+                            <label htmlFor="role-professional" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: 'hsl(var(--text-main))', fontWeight: 'normal' }}>
+                                <input id="role-professional" type="radio" name="role" value="professional" style={{ width: 'auto' }} /> Professional
                             </label>
                         </div>
                     </div>
 
-                    <Button type="submit" className="w-full" style={{ width: '100%' }} isLoading={isLoading}>
+                    <Button id="signup-submit" type="submit" className="w-full" style={{ width: '100%' }} isLoading={isLoading}>
                         Create Account <ArrowRight size={18} />
                     </Button>
                 </form>

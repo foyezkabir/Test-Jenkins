@@ -51,6 +51,7 @@ const Login = () => {
 
                 <form onSubmit={handleSubmit}>
                     <Input
+                        id="login-email"
                         label="Email Address"
                         type="email"
                         placeholder="admin@example.com"
@@ -61,6 +62,7 @@ const Login = () => {
                     />
 
                     <Input
+                        id="login-password"
                         label="Password"
                         type="password"
                         placeholder="••••••••"
@@ -71,14 +73,14 @@ const Login = () => {
                     />
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', fontSize: '0.875rem' }}>
-                        <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, cursor: 'pointer' }}>
-                            <input type="checkbox" style={{ width: 'auto', margin: 0 }} />
+                        <label htmlFor="remember-me" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, cursor: 'pointer' }}>
+                            <input id="remember-me" type="checkbox" style={{ width: 'auto', margin: 0 }} />
                             Remember me
                         </label>
                         <a href="#" style={{ color: 'hsl(var(--primary))' }}>Forgot password?</a>
                     </div>
 
-                    <Button type="submit" className="w-full" style={{ width: '100%' }} isLoading={isLoading}>
+                    <Button id="login-submit" type="submit" className="w-full" style={{ width: '100%' }} isLoading={isLoading}>
                         Sign In <ArrowRight size={18} />
                     </Button>
                 </form>

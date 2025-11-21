@@ -38,7 +38,7 @@ export const ToastProvider = ({ children }) => {
     );
 };
 
-const ToastItem = ({ message, type, onClose }) => {
+const ToastItem = ({ message, type, onClose, id }) => {
     const icons = {
         success: <CheckCircle size={20} color="hsl(var(--success))" />,
         error: <AlertTriangle size={20} color="hsl(var(--error))" />,
@@ -46,21 +46,26 @@ const ToastItem = ({ message, type, onClose }) => {
     };
 
     return (
-        <div className="animate-fade-in" style={{
-            background: 'hsla(var(--surface), 0.9)',
-            backdropFilter: 'blur(8px)',
-            border: '1px solid hsla(255,100%,100%,0.1)',
-            padding: '1rem 1.5rem',
-            borderRadius: 'var(--radius-md)',
-            boxShadow: 'var(--shadow-lg)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '1rem',
-            minWidth: '300px',
-            borderLeft: `4px solid hsl(var(--${type === 'info' ? 'primary' : type}))`
-        }}>
+        <div
+            id={`toast-${id}`}
+            data-testid={`toast-${type}`}
+            className="animate-fade-in toast-item"
+            style={{
+                background: 'hsla(var(--surface), 0.9)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid hsla(255,100%,100%,0.1)',
+                padding: '1rem 1.5rem',
+                borderRadius: 'var(--radius-md)',
+                boxShadow: 'var(--shadow-lg)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem',
+                minWidth: '300px',
+                borderLeft: `4px solid hsl(var(--${type === 'info' ? 'primary' : type}))`
+            }}
+        >
             {icons[type]}
-            <p style={{ fontSize: '0.875rem', flex: 1 }}>{message}</p>
+            <p className="toast-message" style={{ fontSize: '0.875rem', flex: 1 }}>{message}</p>
             <button onClick={onClose} style={{ color: 'hsl(var(--text-muted))' }}>
                 <X size={16} />
             </button>

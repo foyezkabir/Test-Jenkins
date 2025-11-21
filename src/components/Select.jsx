@@ -9,13 +9,17 @@ const Select = ({
     error,
     placeholder = 'Select an option',
     className = '',
+    id,
+    testId,
     ...props
 }) => {
     return (
         <div className={`input-group ${className}`} style={{ marginBottom: '1.5rem' }}>
-            {label && <label>{label}</label>}
+            {label && <label htmlFor={id}>{label}</label>}
             <div style={{ position: 'relative' }}>
                 <select
+                    id={id}
+                    data-testid={testId || id}
                     value={value}
                     onChange={onChange}
                     style={{
@@ -45,12 +49,17 @@ const Select = ({
                 />
             </div>
             {error && (
-                <span style={{
-                    color: 'hsl(var(--error))',
-                    fontSize: '0.75rem',
-                    marginTop: '0.25rem',
-                    display: 'block'
-                }}>
+                <span
+                    id={`${id}-error`}
+                    data-testid={`${testId || id}-error`}
+                    className="input-error-msg"
+                    style={{
+                        color: 'hsl(var(--error))',
+                        fontSize: '0.75rem',
+                        marginTop: '0.25rem',
+                        display: 'block'
+                    }}
+                >
                     {error}
                 </span>
             )}
