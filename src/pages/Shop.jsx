@@ -122,7 +122,7 @@ const Shop = () => {
                                 <span id="cart-total">${total.toFixed(2)}</span>
                             </div>
 
-                            <Button id="checkout-btn" className="w-full" style={{ width: '100%', marginTop: '1.5rem' }}>Checkout</Button>
+                            <Button id="checkout-btn" variant="white" className="w-full" style={{ width: '100%', marginTop: '1.5rem' }} onClick={() => addToast('Checkout feature coming soon!', 'info')}>Checkout</Button>
                         </div>
                     </div>
                 )}
