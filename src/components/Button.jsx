@@ -41,6 +41,11 @@ const Button = ({
         ghost: {
             background: 'transparent',
             color: 'hsl(var(--text-muted))',
+        },
+        white: {
+            background: 'white',
+            color: 'hsl(var(--background))',
+            boxShadow: '0 0 20px -5px rgba(255, 255, 255, 0.5)',
         }
     };
 
@@ -81,6 +86,7 @@ const Button = ({
         .btn-primary:active { transform: translateY(0); }
         .btn-secondary:hover { background: hsla(var(--surface-hover), 0.8); }
         .btn-ghost:hover { color: hsl(var(--text-main)); background: hsla(255,100%,100%,0.05); }
+        .btn-white:hover { transform: translateY(-1px); box-shadow: 0 0 25px -5px rgba(255, 255, 255, 0.6); }
       `}</style>
         </button>
     );

@@ -119,23 +119,10 @@ const Signup = () => {
                             <label htmlFor="role-student" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: 'hsl(var(--text-main))', fontWeight: 'normal' }}>
                                 <input id="role-student" type="radio" name="role" value="student" style={{ width: 'auto' }} /> Student
                             </label>
-                            <label htmlFor="role-professional" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: 'hsl(var(--text-main))', fontWeight: 'normal' }}>
-                                <input id="role-professional" type="radio" name="role" value="professional" style={{ width: 'auto' }} /> Professional
-                            </label>
                         </div>
                     </div>
-
-                    <Button id="signup-submit" type="submit" className="w-full" style={{ width: '100%' }} isLoading={isLoading}>
-                        Create Account <ArrowRight size={18} />
-                    </Button>
-                </form>
-
-                <div style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.875rem', color: 'hsl(var(--text-muted))' }}>
-                    Already have an account? <Link to="/login" style={{ color: 'hsl(var(--primary))', fontWeight: 600 }}>Sign in</Link>
-                </div>
             </div>
-        </div>
-    );
+            );
 };
 
-export default Signup;
+            export default Signup;

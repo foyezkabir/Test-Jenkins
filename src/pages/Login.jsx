@@ -80,7 +80,7 @@ const Login = () => {
                         <a href="#" style={{ color: 'hsl(var(--primary))' }}>Forgot password?</a>
                     </div>
 
-                    <Button id="login-submit" type="submit" className="w-full" style={{ width: '100%' }} isLoading={isLoading}>
+                    <Button id="login-submit" type="submit" variant="white" className="w-full" style={{ width: '100%' }} isLoading={isLoading}>
                         Sign In <ArrowRight size={18} />
                     </Button>
                 </form>
