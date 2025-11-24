@@ -7,6 +7,12 @@ import Signup from './pages/Signup';
 import Shop from './pages/Shop';
 import FormElements from './pages/FormElements';
 
+import Product from './pages/Product';
+import Features from './pages/Features';
+import Documentation from './pages/Documentation';
+import ApiReference from './pages/ApiReference';
+import Changelog from './pages/Changelog';
+
 const Navbar = () => {
     const location = useLocation();
 
@@ -27,13 +33,13 @@ const Navbar = () => {
             justifyContent: 'space-between',
             alignItems: 'center'
         }}>
-            <Link to="/dashboard" style={{ fontWeight: 700, fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <div style={{ width: '32px', height: '32px', background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', borderRadius: '8px' }} />
-                AutoPractice
+            <Link to="/dashboard" style={{ fontWeight: 700, fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: "'Oxanium', sans-serif" }}>
+                <img src="/src/assets/logo.png" alt="TestDojo Logo" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                TestDojo
             </Link>
 
             <div style={{ display: 'flex', gap: '2rem' }}>
-                <NavLink to="/dashboard" icon={Home} active={isActive('/dashboard')}>Dashboard</NavLink>
+                <NavLink to="/dashboard" icon={Home} active={isActive('/dashboard')}>Home</NavLink>
                 <NavLink to="/shop" icon={ShoppingBag} active={isActive('/shop')}>Shop</NavLink>
                 <NavLink to="/form-elements" active={isActive('/form-elements')}>Form Elements</NavLink>
                 <NavLink to="/login" icon={LogIn} active={isActive('/login')}>Login</NavLink>
@@ -72,6 +78,11 @@ function App() {
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/shop" element={<Shop />} />
                     <Route path="/form-elements" element={<FormElements />} />
+                    <Route path="/product" element={<Product />} />
+                    <Route path="/features" element={<Features />} />
+                    <Route path="/documentation" element={<Documentation />} />
+                    <Route path="/api-reference" element={<ApiReference />} />
+                    <Route path="/changelog" element={<Changelog />} />
                 </Routes>
             </div>
         </Router>

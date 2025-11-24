@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import Button from '../components/Button';
 import Footer from '../components/Footer';
+import heroCardImage from '../assets/hero-card.png';
 
 const Dashboard = () => {
     return (
@@ -71,75 +72,17 @@ const Dashboard = () => {
                         </div>
 
                         <div style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
-                            <div style={{
-                                padding: '3rem',
-                                width: '100%',
-                                maxWidth: '500px',
-                                aspectRatio: '4/3',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                position: 'relative',
-                                background: '#050505',
-                                borderRadius: '32px',
-                                border: '1px solid #1a1a1a',
-                                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
-                            }}>
-                                <div style={{
-                                    position: 'absolute',
-                                    top: '24px',
-                                    right: '24px',
-                                    padding: '0.5rem 1rem',
-                                    background: 'white',
-                                    color: 'black',
-                                    borderRadius: '9999px',
-                                    fontSize: '0.875rem',
-                                    fontWeight: 700,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.375rem',
-                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                                }}>
-                                    <div style={{ width: '8px', height: '8px', background: '#22c55e', borderRadius: '50%' }} />
-                                    Live Testing
-                                </div>
-
-                                <div style={{
-                                    width: '96px',
-                                    height: '96px',
-                                    background: 'white',
-                                    borderRadius: '28px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    marginBottom: '2rem',
-                                    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                                }}>
-                                    <Code size={48} color="#6366f1" strokeWidth={2.5} />
-                                </div>
-                                <h3 style={{ fontSize: '2rem', marginBottom: '0.75rem', fontWeight: 800, color: 'white' }}>Test Automation Hub</h3>
-                                <p style={{ color: '#a1a1aa', textAlign: 'center', fontSize: '1.125rem' }}>Interactive testing environment with real elements</p>
-
-                                <div style={{
-                                    position: 'absolute',
-                                    bottom: '24px',
-                                    left: '24px',
-                                    padding: '0.5rem 1rem',
-                                    background: 'white',
-                                    color: 'black',
-                                    borderRadius: '9999px',
-                                    fontSize: '0.875rem',
-                                    fontWeight: 700,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.375rem',
-                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-                                }}>
-                                    <div style={{ width: '8px', height: '8px', background: '#6366f1', borderRadius: '50%' }} />
-                                    All Elements
-                                </div>
-                            </div>
+                            <img
+                                src={heroCardImage}
+                                alt="Test Automation Hub"
+                                style={{
+                                    width: '100%',
+                                    maxWidth: '500px',
+                                    height: 'auto',
+                                    borderRadius: '32px',
+                                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                                }}
+                            />
                         </div>
                     </div>
                 </div>

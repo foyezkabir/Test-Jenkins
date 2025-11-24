@@ -1,0 +1,29 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="256" fill="url(#gradient)" />
+  
+  <!-- Dojo Symbol - Stylized TD -->
+  <g>
+    <!-- T shape representing both Test and Training -->
+    <rect x="200" y="140" width="112" height="32" rx="8" fill="white" opacity="0.95" />
+    <rect x="240" y="140" width="32" height="160" rx="8" fill="white" opacity="0.95" />
+    
+    <!-- D shape - circular with opening -->
+    <path d="M 280 320 L 320 320 Q 360 320 360 360 Q 360 400 320 400 L 280 400 L 280 320 Z" fill="white" opacity="0.95" />
+    
+    <!-- Martial arts belt -->
+    <rect x="160" y="300" width="192" height="16" rx="8" fill="white" opacity="0.7" />
+    
+    <!-- Testing elements - checkmarks -->
+    <path d="M 180 360 L 190 370 L 210 345" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+    <path d="M 180 390 L 190 400 L 210 375" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+  </g>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

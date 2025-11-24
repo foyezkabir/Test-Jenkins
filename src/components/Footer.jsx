@@ -12,8 +12,8 @@ const Footer = () => {
             <div className="container">
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                    gap: '3rem',
+                    gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr',
+                    gap: '2rem',
                     marginBottom: '3rem'
                 }}>
                     <div>
@@ -23,10 +23,11 @@ const Footer = () => {
                             gap: '0.5rem',
                             marginBottom: '1.5rem',
                             fontWeight: 700,
-                            fontSize: '1.25rem'
+                            fontSize: '1.25rem',
+                            fontFamily: "'Oxanium', sans-serif"
                         }}>
                             <div style={{ width: '24px', height: '24px', background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', borderRadius: '6px' }} />
-                            AutoTest Hub
+                            TestDojo
                         </div>
                         <p style={{ color: 'hsl(var(--text-muted))', marginBottom: '1.5rem', maxWidth: '300px' }}>
                             The complete automation testing playground. Practice and perfect your testing skills with real-world scenarios.
@@ -41,19 +42,39 @@ const Footer = () => {
 
                     <FooterColumn
                         title="Product"
-                        links={['Features', 'Documentation', 'API Reference', 'Changelog']}
+                        links={[
+                            { name: 'Features', path: '/features' },
+                            { name: 'Documentation', path: '/documentation' },
+                            { name: 'API Reference', path: '/api-reference' },
+                            { name: 'Changelog', path: '/changelog' }
+                        ]}
                     />
                     <FooterColumn
                         title="Testing"
-                        links={['Login Tests', 'Form Elements', 'CRUD Operations', 'E-commerce Flow']}
+                        links={[
+                            { name: 'Login Tests', path: '/login' },
+                            { name: 'Form Elements', path: '/form-elements' },
+                            { name: 'CRUD Operations', path: '/shop' },
+                            { name: 'E-commerce Flow', path: '/shop' }
+                        ]}
                     />
                     <FooterColumn
                         title="Resources"
-                        links={['Tutorials', 'Best Practices', 'Community', 'Support']}
+                        links={[
+                            { name: 'Tutorials', path: '/documentation' },
+                            { name: 'Best Practices', path: '/documentation' },
+                            { name: 'Community', path: '#' },
+                            { name: 'Support', path: '#' }
+                        ]}
                     />
                     <FooterColumn
                         title="Company"
-                        links={['About', 'Blog', 'Careers', 'Contact']}
+                        links={[
+                            { name: 'About', path: '/product' },
+                            { name: 'Blog', path: '#' },
+                            { name: 'Careers', path: '#' },
+                            { name: 'Contact', path: '#' }
+                        ]}
                     />
                 </div>
 
@@ -68,7 +89,7 @@ const Footer = () => {
                     color: 'hsl(var(--text-muted))',
                     fontSize: '0.875rem'
                 }}>
-                    <p>© 2025 AutoTest Hub. All rights reserved.</p>
+                    <p>© 2025 TestDojo. All rights reserved.</p>
                     <div style={{ display: 'flex', gap: '2rem' }}>
                         <a href="#" style={{ transition: 'color 0.2s' }}>Privacy Policy</a>
                         <a href="#" style={{ transition: 'color 0.2s' }}>Terms of Service</a>
@@ -80,14 +101,16 @@ const Footer = () => {
     );
 };
 
+import { Link } from 'react-router-dom';
+
 const FooterColumn = ({ title, links }) => (
     <div>
         <h4 style={{ marginBottom: '1.5rem', fontSize: '1rem' }}>{title}</h4>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {links.map(link => (
-                <a
-                    key={link}
-                    href="#"
+                <Link
+                    key={link.name}
+                    to={link.path}
                     style={{
                         color: 'hsl(var(--text-muted))',
                         fontSize: '0.875rem',
@@ -96,8 +119,8 @@ const FooterColumn = ({ title, links }) => (
                     onMouseEnter={e => e.target.style.color = 'hsl(var(--primary))'}
                     onMouseLeave={e => e.target.style.color = 'hsl(var(--text-muted))'}
                 >
-                    {link}
-                </a>
+                    {link.name}
+                </Link>
             ))}
         </div>
     </div>
