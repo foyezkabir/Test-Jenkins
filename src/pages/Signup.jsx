@@ -125,7 +125,7 @@ const Signup = () => {
                         </div>
                     </div>
 
-                    <Button id="signup-submit" type="submit" variant="white" className="w-full" style={{ width: '100%', marginTop: '1rem' }} isLoading={isLoading}>
+                    <Button id="signup-submit" type="submit" variant="primary" className="w-full" style={{ width: '100%', marginTop: '1rem' }} isLoading={isLoading}>
                         Create Account <ArrowRight size={18} />
                     </Button>
                 </form>

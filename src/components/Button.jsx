@@ -43,9 +43,10 @@ const Button = ({
             color: 'hsl(var(--text-muted))',
         },
         white: {
-            background: 'white',
-            color: 'hsl(var(--background))',
-            boxShadow: '0 0 20px -5px rgba(255, 255, 255, 0.5)',
+            background: 'transparent',
+            color: '#ffffff',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
+            fontWeight: '600',
         }
     };
 
@@ -86,7 +87,12 @@ const Button = ({
         .btn-primary:active { transform: translateY(0); }
         .btn-secondary:hover { background: hsla(var(--surface-hover), 0.8); }
         .btn-ghost:hover { color: hsl(var(--text-main)); background: hsla(255,100%,100%,0.05); }
-        .btn-white:hover { transform: translateY(-1px); box-shadow: 0 0 25px -5px rgba(255, 255, 255, 0.6); }
+        .btn-white:hover { 
+            border-color: #ffffff; 
+            box-shadow: 0 0 20px -5px rgba(255, 255, 255, 0.5); 
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
       `}</style>
         </button>
     );

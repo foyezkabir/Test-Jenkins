@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Shop from './pages/Shop';
+import FormElements from './pages/FormElements';
 
 const Navbar = () => {
     const location = useLocation();
@@ -34,6 +35,7 @@ const Navbar = () => {
             <div style={{ display: 'flex', gap: '2rem' }}>
                 <NavLink to="/dashboard" icon={Home} active={isActive('/dashboard')}>Dashboard</NavLink>
                 <NavLink to="/shop" icon={ShoppingBag} active={isActive('/shop')}>Shop</NavLink>
+                <NavLink to="/form-elements" active={isActive('/form-elements')}>Form Elements</NavLink>
                 <NavLink to="/login" icon={LogIn} active={isActive('/login')}>Login</NavLink>
                 <NavLink to="/signup" icon={User} active={isActive('/signup')}>Signup</NavLink>
             </div>
@@ -69,6 +71,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/shop" element={<Shop />} />
+                    <Route path="/form-elements" element={<FormElements />} />
                 </Routes>
             </div>
         </Router>

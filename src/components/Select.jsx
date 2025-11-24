@@ -29,9 +29,9 @@ const Select = ({
                     }}
                     {...props}
                 >
-                    <option value="" disabled>{placeholder}</option>
+                    <option value="" disabled style={{ background: 'hsl(var(--surface))', color: 'hsl(var(--text-muted))' }}>{placeholder}</option>
                     {options.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
+                        <option key={opt.value} value={opt.value} style={{ background: 'hsl(var(--surface))', color: 'hsl(var(--text-main))' }}>
                             {opt.label}
                         </option>
                     ))}

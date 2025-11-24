@@ -1,101 +1,321 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, UserPlus, LogIn, LayoutDashboard, ArrowRight } from 'lucide-react';
+import {
+    Code,
+    MousePointerClick,
+    Database,
+    ShoppingCart,
+    ArrowRight,
+    CheckCircle,
+    Zap,
+    Layers
+} from 'lucide-react';
+import Button from '../components/Button';
+import Footer from '../components/Footer';
 
 const Dashboard = () => {
-    const activities = [
-        {
-            title: 'Login Automation',
-            description: 'Practice form filling, validation handling, and authentication flows.',
-            icon: LogIn,
-            path: '/login',
-            color: 'var(--primary)'
-        },
-        {
-            title: 'Registration Form',
-            description: 'Complex form interactions with dropdowns, radio buttons, and validation.',
-            icon: UserPlus,
-            path: '/signup',
-            color: 'var(--secondary)'
-        },
-        {
-            title: 'E-commerce Flow',
-            description: 'Simulate a purchase journey with cart management and coupon application.',
-            icon: ShoppingBag,
-            path: '/shop',
-            color: 'var(--accent)'
-        }
-    ];
-
     return (
-        <div className="container" style={{ padding: '4rem 1rem' }}>
-            <header style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                <h1 className="animate-fade-in">Automation Practice</h1>
-                <p style={{ fontSize: '1.25rem', color: 'hsl(var(--text-muted))', maxWidth: '600px', margin: '1rem auto' }} className="animate-fade-in">
-                    A premium playground for testing your automation scripts.
-                    Explore different user flows and interaction patterns.
-                </p>
-            </header>
-
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '2rem'
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            {/* Hero Section */}
+            <section style={{
+                padding: '6rem 0',
+                background: 'radial-gradient(circle at 50% 0%, hsla(var(--primary), 0.15), transparent 50%)'
             }}>
-                {activities.map((activity, index) => (
-                    <Link
-                        key={index}
-                        to={activity.path}
-                        className="glass-panel animate-fade-in"
-                        style={{
-                            padding: '2rem',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '1rem',
-                            transition: 'var(--transition)',
-                            animationDelay: `${index * 100}ms`,
-                            textDecoration: 'none'
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-5px)';
-                            e.currentTarget.style.borderColor = `hsl(${activity.color})`;
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'translateY(0)';
-                            e.currentTarget.style.borderColor = 'hsla(255, 100%, 100%, 0.1)';
-                        }}
-                    >
-                        <div style={{
-                            width: '48px',
-                            height: '48px',
-                            borderRadius: '12px',
-                            background: `hsla(${activity.color}, 0.2)`,
-                            color: `hsl(${activity.color})`,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}>
-                            <activity.icon size={24} />
+                <div className="container">
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '4rem',
+                        flexWrap: 'wrap'
+                    }}>
+                        <div style={{ flex: '1', minWidth: '300px' }}>
+                            <div style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                padding: '0.5rem 1rem',
+                                background: 'hsla(var(--primary), 0.1)',
+                                borderRadius: '9999px',
+                                color: 'hsl(var(--primary))',
+                                fontWeight: 600,
+                                fontSize: '0.875rem',
+                                marginBottom: '1.5rem'
+                            }}>
+                                <Zap size={16} /> #1 Automation Testing Platform
+                            </div>
+                            <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>
+                                Complete Test <br />
+                                <span style={{ color: 'hsl(var(--primary))' }}>Automation</span> Playground
+                            </h1>
+                            <p style={{
+                                fontSize: '1.25rem',
+                                color: 'hsl(var(--text-muted))',
+                                marginBottom: '2.5rem',
+                                maxWidth: '500px',
+                                lineHeight: 1.6
+                            }}>
+                                Practice automation testing with real-world scenarios. From login forms to complete e-commerce workflows, master all aspects of Web automation.
+                            </p>
+                            <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem' }}>
+                                <Link to="/login">
+                                    <Button variant="primary" size="lg">Get Started</Button>
+                                </Link>
+                                <Button variant="secondary" size="lg">Learn More</Button>
+                            </div>
+                            <div style={{ display: 'flex', gap: '3rem' }}>
+                                <Stat number="50+" label="Scenarios" icon={Code} />
+                                <Stat number="20+" label="Tools" icon={Layers} />
+                                <Stat number="100+" label="Elements" icon={Zap} />
+                            </div>
                         </div>
 
-                        <h3 style={{ fontSize: '1.5rem' }}>{activity.title}</h3>
-                        <p style={{ color: 'hsl(var(--text-muted))', flex: 1 }}>{activity.description}</p>
+                        <div style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+                            <div style={{
+                                padding: '3rem',
+                                width: '100%',
+                                maxWidth: '500px',
+                                aspectRatio: '4/3',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                position: 'relative',
+                                background: '#050505',
+                                borderRadius: '32px',
+                                border: '1px solid #1a1a1a',
+                                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                            }}>
+                                <div style={{
+                                    position: 'absolute',
+                                    top: '24px',
+                                    right: '24px',
+                                    padding: '0.5rem 1rem',
+                                    background: 'white',
+                                    color: 'black',
+                                    borderRadius: '9999px',
+                                    fontSize: '0.875rem',
+                                    fontWeight: 700,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.375rem',
+                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                                }}>
+                                    <div style={{ width: '8px', height: '8px', background: '#22c55e', borderRadius: '50%' }} />
+                                    Live Testing
+                                </div>
 
+                                <div style={{
+                                    width: '96px',
+                                    height: '96px',
+                                    background: 'white',
+                                    borderRadius: '28px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    marginBottom: '2rem',
+                                    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                                }}>
+                                    <Code size={48} color="#6366f1" strokeWidth={2.5} />
+                                </div>
+                                <h3 style={{ fontSize: '2rem', marginBottom: '0.75rem', fontWeight: 800, color: 'white' }}>Test Automation Hub</h3>
+                                <p style={{ color: '#a1a1aa', textAlign: 'center', fontSize: '1.125rem' }}>Interactive testing environment with real elements</p>
+
+                                <div style={{
+                                    position: 'absolute',
+                                    bottom: '24px',
+                                    left: '24px',
+                                    padding: '0.5rem 1rem',
+                                    background: 'white',
+                                    color: 'black',
+                                    borderRadius: '9999px',
+                                    fontSize: '0.875rem',
+                                    fontWeight: 700,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.375rem',
+                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                                }}>
+                                    <div style={{ width: '8px', height: '8px', background: '#6366f1', borderRadius: '50%' }} />
+                                    All Elements
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Modules Section */}
+            <section style={{ padding: '4rem 0', flex: 1 }}>
+                <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.5rem',
-                            color: `hsl(${activity.color})`,
+                            display: 'inline-block',
+                            padding: '0.5rem 1.5rem',
+                            background: 'hsl(var(--primary))',
+                            color: 'white',
+                            borderRadius: '9999px',
+                            fontSize: '0.875rem',
                             fontWeight: 600,
-                            marginTop: '1rem'
+                            marginBottom: '1.5rem'
                         }}>
-                            Start Practice <ArrowRight size={16} />
+                            Features
                         </div>
-                    </Link>
-                ))}
-            </div>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
+                            Comprehensive <br />
+                            Automation <span style={{ color: 'hsl(var(--primary))' }}>Modules</span>
+                        </h2>
+                        <p style={{ color: 'hsl(var(--text-muted))' }}>Everything you need to practice and master web automation testing</p>
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6rem' }}>
+                        <ModuleSection
+                            title="Master Element Locators"
+                            description="Learn how to identify and interact with web elements using various locator strategies. Our platform provides real-world examples with ID, class, CSS selectors, XPath, and data attributes."
+                            features={['CSS Selectors & XPath', 'Auto-generated IDs', 'Dynamic element handling', 'Shadow DOM elements']}
+                            link="/form-elements"
+                            linkText="Practice Locators"
+                            imageColor="var(--secondary)"
+                            align="left"
+                            moduleId="1"
+                        />
+                        <ModuleSection
+                            title="Complex User Interactions"
+                            description="Practice automating complex user workflows including multi-step forms, dynamic content, file uploads, and drag-and-drop operations."
+                            features={['Form validation & submission', 'AJAX & dynamic content', 'File upload handling', 'Multi-step workflows']}
+                            link="/signup"
+                            linkText="Try Interactions"
+                            imageColor="var(--accent)"
+                            align="right"
+                            moduleId="2"
+                        />
+                        <ModuleSection
+                            title="Full CRUD Operations"
+                            description="Test complete Create, Read, Update, and Delete operations with our product management system. Practice handling tables, modals, confirmations, and real-time updates."
+                            features={['Create & edit records', 'Delete with confirmation', 'Search & filter data', 'Pagination handling']}
+                            link="/shop" // Placeholder, maybe should be a CRUD page but using Shop for now
+                            linkText="Start CRUD"
+                            imageColor="var(--success)"
+                            align="left"
+                            moduleId="3"
+                        />
+                        <ModuleSection
+                            title="E-Commerce Workflow"
+                            description="Automate end-to-end e-commerce scenarios including product browsing, cart management, coupon application, and checkout process."
+                            features={['Add to cart functionality', 'Promo code validation', 'Checkout process', 'Order confirmation']}
+                            link="/shop"
+                            linkText="Shop Automation"
+                            imageColor="var(--warning)"
+                            align="right"
+                            moduleId="4"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <Footer />
         </div>
     );
 };
+
+const Stat = ({ number, label, icon: Icon }) => (
+    <div>
+        <div style={{
+            width: '40px',
+            height: '40px',
+            background: 'hsla(var(--primary), 0.1)',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '0.5rem',
+            color: 'hsl(var(--primary))'
+        }}>
+            <Icon size={20} />
+        </div>
+        <div style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.25rem' }}>{number}</div>
+        <div style={{ color: 'hsl(var(--text-muted))', fontSize: '0.875rem', fontWeight: 500 }}>{label}</div>
+    </div>
+);
+
+const ModuleSection = ({ title, description, features, link, linkText, imageColor, align, moduleId }) => (
+    <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '4rem',
+        flexDirection: align === 'right' ? 'row-reverse' : 'row',
+        flexWrap: 'wrap'
+    }}>
+        <div style={{ flex: 1, minWidth: '300px' }}>
+            <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.25rem 0.75rem',
+                background: `hsla(${imageColor}, 0.1)`,
+                color: `hsl(${imageColor})`,
+                borderRadius: '9999px',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                marginBottom: '1rem'
+            }}>
+                <Layers size={12} /> Module {moduleId}
+            </div>
+            <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>{title}</h3>
+            <p style={{ color: 'hsl(var(--text-muted))', marginBottom: '2rem', lineHeight: 1.6 }}>{description}</p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
+                {features.map((feature, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <CheckCircle size={18} color={`hsl(${imageColor})`} />
+                        <span style={{ fontWeight: 500 }}>{feature}</span>
+                    </div>
+                ))}
+            </div>
+
+            <Link to={link}>
+                <Button variant="primary" style={{ background: `hsl(${imageColor})` }}>
+                    {linkText} <ArrowRight size={16} />
+                </Button>
+            </Link>
+        </div>
+
+        <div style={{ flex: 1, minWidth: '300px' }}>
+            <div className="glass-panel" style={{
+                aspectRatio: '16/9',
+                background: `linear-gradient(135deg, hsla(${imageColor}, 0.1), hsla(var(--surface), 0.5))`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative',
+                overflow: 'hidden'
+            }}>
+                {/* Abstract visual representation */}
+                <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    opacity: 0.3,
+                    backgroundImage: `radial-gradient(circle at 50% 50%, hsla(${imageColor}, 0.5), transparent 70%)`
+                }} />
+                <div style={{
+                    position: 'relative',
+                    padding: '0.5rem 1rem',
+                    background: 'white',
+                    color: 'black',
+                    borderRadius: '8px',
+                    fontWeight: 600,
+                    boxShadow: '0 10px 25px -5px rgba(0,0,0,0.2)'
+                }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', fontSize: '0.75rem', color: '#666' }}>
+                        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ff5f57' }} />
+                        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#febc2e' }} />
+                        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#28c840' }} />
+                    </div>
+                    Ready to Test
+                </div>
+            </div>
+        </div>
+    </div>
+);
 
 export default Dashboard;
